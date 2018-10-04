@@ -8,9 +8,14 @@ public class Player : MonoBehaviour {
     
     public int Lane = 0;
     bool StartGame = false;
+    private bool invincible = false;
+
+    int getHealth = HearthCounter.health;
+    private IEnumerator coroutine;
 
 
-    
+
+
     void Start () {
       
     }
@@ -51,5 +56,33 @@ public class Player : MonoBehaviour {
 
         }
 
+    }
+
+    private void OnTriggerEnter(Collider col)
+    {
+
+        if (invincible == false)
+        {
+            if (col.tag == "Enemy")
+            {
+                HearthCounter.health -= 1;
+                invincible = true;
+                GotHit();
+
+            }
+        }
+    }
+
+    private IEnumerator GotHit()
+    {
+        if (invincible == true)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+
+                yield return new WaitForSeconds(1);
+
+            }
+        }
     }
 }
