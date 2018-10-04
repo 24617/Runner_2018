@@ -2471,6 +2471,8 @@ GameObject:
   - component: {fileID: 1101802932}
   - component: {fileID: 1101802931}
   - component: {fileID: 1101802930}
+  - component: {fileID: 1101802933}
+  - component: {fileID: 1101802934}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -2532,11 +2534,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1101802928}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: -0.81}
 --- !u!33 &1101802932
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2544,6 +2546,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1101802928}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1101802933
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1101802928}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
+--- !u!114 &1101802934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1101802928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f904b04782b88e549ab75962f61dc0b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 4
+  Spinner: {fileID: 1619261502}
 --- !u!1 &1138098499
 GameObject:
   m_ObjectHideFlags: 0
@@ -3606,7 +3636,6 @@ GameObject:
   - component: {fileID: 1619261507}
   - component: {fileID: 1619261506}
   - component: {fileID: 1619261505}
-  - component: {fileID: 1619261504}
   m_Layer: 0
   m_Name: Spinner
   m_TagString: Untagged
@@ -3620,7 +3649,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1619261502}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.57333344, y: 0.40199995, z: -0.13333337}
   m_LocalScale: {x: 0.06666667, y: 0.1, z: 0.06666667}
   m_Children:
@@ -3628,17 +3657,6 @@ Transform:
   m_Father: {fileID: 1638912553}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1619261504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1619261502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f904b04782b88e549ab75962f61dc0b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1619261505
 MeshRenderer:
   m_ObjectHideFlags: 0

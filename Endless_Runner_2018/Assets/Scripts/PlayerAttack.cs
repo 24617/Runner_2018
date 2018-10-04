@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerAttack : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
     bool isAttacking = false;
     public int attackSpeed = 4;
+    public GameObject Spinner;
 
     Vector3 startRotation;
 
@@ -13,44 +14,50 @@ public class playerAttack : MonoBehaviour
 
     private void Start()
     {
-        startRotation = this.gameObject.transform.eulerAngles;
-        Debug.Log(startRotation + "hello");
+        startRotation = Spinner.gameObject.transform.eulerAngles;
+       
     }
 
     private void Update()
     {
-
-
-        if (Input.GetKey("space"))
-
+        if (isAttacking == false)
         {
-
-            Attack();
-
-
-        }
-        else
-        {
-            this.gameObject.transform.eulerAngles = startRotation;
+            if (Input.GetKeyDown("space"))
+            {
+                isAttacking = true;
+            }
         }
 
-        Debug.Log(this.gameObject.transform.rotation.eulerAngles.y);
+        if (isAttacking == true)
+        {
+            Spinner.gameObject.transform.Rotate(Vector3.up * attackSpeed);
+
+        }
+
+        if (Spinner.gameObject.transform.rotation.eulerAngles.y >= 120)
+        {
+            isAttacking = false;
+
+            Spinner.gameObject.transform.eulerAngles = startRotation;
+
+        }
+
     }
 
-
-    public void Attack()
+    private void OnTriggerEnter(Collider col)
     {
-        this.gameObject.transform.Rotate(Vector3.back * attackSpeed);
-
-        Debug.Log(this.gameObject.transform.rotation.eulerAngles.y + "    CHECKING!!!");
-
-
-        if (this.gameObject.transform.rotation.eulerAngles.y < -90)
+        if (isAttacking == true)
         {
-            this.gameObject.transform.eulerAngles = startRotation;
-            Debug.Log("reset");
+            if (col.tag == "Enemy")
+            {
+                Destroy(col.gameObject);
+
+            }
         }
     }
+
+
+
 
 
 }
