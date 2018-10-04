@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
 
     int getHealth = HearthCounter.health;
     private IEnumerator coroutine;
+    
 
 
 
@@ -23,17 +24,7 @@ public class Player : MonoBehaviour {
 
     void Update() {
 
-        if (Input.GetKeyDown("space"))
-        {
-            StartGame = true;
-        }
-
-        if (StartGame == true)
-        {
-            transform.position += Vector3.right * Time.deltaTime * 5;
-            
-        }
-        
+        transform.position += Vector3.right * Time.deltaTime * 5;
         transform.position = new Vector3(transform.position.x, transform.position.y, Lanes[Lane]);
         
 
@@ -67,7 +58,8 @@ public class Player : MonoBehaviour {
             {
                 HearthCounter.health -= 1;
                 invincible = true;
-                GotHit();
+                coroutine = GotHit();
+                StartCoroutine(coroutine);
 
             }
         }
@@ -75,14 +67,13 @@ public class Player : MonoBehaviour {
 
     private IEnumerator GotHit()
     {
-        if (invincible == true)
-        {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
-
-                yield return new WaitForSeconds(1);
-
+                gameObject.GetComponent<Renderer>().enabled = false;
+                yield return new WaitForSeconds(0.2f);
+                gameObject.GetComponent<Renderer>().enabled = true;
+                yield return new WaitForSeconds(0.2f);
             }
-        }
+        invincible = false;
     }
 }
