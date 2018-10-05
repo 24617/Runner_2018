@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
 
-    public GameObject Snail;
-    public List<float> Lanes = new List<float>();
+    public GameObject[] Enemies;
+    private List<float> Lanes = new List<float>();
 
     private float SpawnTimer = 5.0f;
     public float timer = 0.0f;
@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour {
         Lanes.Add(-2f);
         Lanes.Add(-0.5f);
         Lanes.Add(1f);
+
     }
 
     void Update () {
@@ -30,12 +31,13 @@ public class EnemySpawner : MonoBehaviour {
 
     private void SpawnEnemy()
     {
-        int RandomEnemy = Random.Range(0, Lanes.Capacity);
+        int RandomLane = Random.Range(0, Lanes.Capacity);
+        int RandomEnemy = Random.Range(0, Enemies.Length);
 
-        Vector3 spawnPosition = new Vector3(transform.position.x, 2, Lanes[RandomEnemy]);
+        Vector3 spawnPosition = new Vector3(transform.position.x, 2, Lanes[RandomLane]);
 
-        Instantiate(Snail, spawnPosition, Quaternion.identity);
+        Instantiate(Enemies[RandomEnemy], spawnPosition, Quaternion.identity);
 
-        Debug.Log(Lanes[RandomEnemy]);
+   
     }
 }
