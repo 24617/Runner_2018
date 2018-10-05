@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public float[] Lanes;
-    
-    public int Lane = 0;
+    public List<float> Lanes = new List<float>();
+
+    private int Lane = 0;
     bool StartGame = false;
     private bool invincible = false;
 
     int getHealth = HearthCounter.health;
     private IEnumerator coroutine;
-    
-
-
-
 
     void Start () {
-      
+        Lanes.Add(-3.5f);
+        Lanes.Add(-2f);
+        Lanes.Add(-0.5f);
+        Lanes.Add(1f);
     }
 
 

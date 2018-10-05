@@ -12,7 +12,7 @@ public class FollowPlayer : MonoBehaviour {
 	}
 	
 	
-	void Update () {
+	void LateUpdate () {
         transform.position = new Vector3(Player.position.x + 6,transform.position.y,transform.position.z);
 	}
 }

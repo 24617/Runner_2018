@@ -6,6 +6,9 @@ public class PlayerAttack : MonoBehaviour
 {
     bool isAttacking = false;
     public int attackSpeed = 4;
+    bool AttackRefresher = false;
+    float AttackRefreshTimer = 0;
+    float RefreshTime = 1.5f;
     public GameObject Spinner;
 
     Vector3 startRotation;
@@ -20,26 +23,41 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        if (isAttacking == false)
+        if (AttackRefresher == false)
         {
-            if (Input.GetKeyDown("space"))
+            if (isAttacking == false)
             {
-                isAttacking = true;
+                if (Input.GetKeyDown("space"))
+                {
+                    isAttacking = true;
+                }
             }
         }
 
         if (isAttacking == true)
         {
             Spinner.gameObject.transform.Rotate(Vector3.up * attackSpeed);
-
+            AttackRefreshTimer += Time.deltaTime;
+            
         }
+        
 
         if (Spinner.gameObject.transform.rotation.eulerAngles.y >= 120)
         {
             isAttacking = false;
-
+            AttackRefresher = true;
             Spinner.gameObject.transform.eulerAngles = startRotation;
 
+        }
+
+        if (AttackRefresher == true)
+        {
+            AttackRefreshTimer += Time.deltaTime;
+            if (AttackRefreshTimer >= RefreshTime)
+            {
+                AttackRefreshTimer = 0;
+                AttackRefresher = false;
+            }
         }
 
     }

@@ -5,15 +5,20 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour {
 
     public GameObject Snail;
-    public float[] Lanes;
+    public List<float> Lanes = new List<float>();
 
     private float SpawnTimer = 5.0f;
     public float timer = 0.0f;
-    
 
+    void Start()
+    {
+        Lanes.Add(-3.5f);
+        Lanes.Add(-2f);
+        Lanes.Add(-0.5f);
+        Lanes.Add(1f);
+    }
 
-	// Update is called once per frame
-	void Update () {
+    void Update () {
         timer += Time.deltaTime;
 
         if (timer >= SpawnTimer)
@@ -25,7 +30,7 @@ public class EnemySpawner : MonoBehaviour {
 
     private void SpawnEnemy()
     {
-        int RandomEnemy = Random.Range(0, Lanes.Length);
+        int RandomEnemy = Random.Range(0, Lanes.Capacity);
 
         Vector3 spawnPosition = new Vector3(transform.position.x, 2, Lanes[RandomEnemy]);
 
