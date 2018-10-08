@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour {
     public GameObject[] Enemies;
     private List<float> Lanes = new List<float>();
 
-    private float SpawnTimer = 5.0f;
+    private float SpawnTimer = 0.4f;
     public float timer = 0.0f;
 
     void Start()
