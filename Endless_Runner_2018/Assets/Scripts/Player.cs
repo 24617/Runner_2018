@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+ 
     public List<float> Lanes = new List<float>();
 
     private int Lane = 0;
     bool StartGame = false;
     private bool invincible = false;
+    public GameObject Character;
 
     int getHealth = HearthCounter.health;
     private IEnumerator coroutine;
+   
 
     void Start () {
         Lanes.Add(-3.5f);
@@ -68,9 +71,9 @@ public class Player : MonoBehaviour {
     {
             for (int i = 0; i < 3; i++)
             {
-                gameObject.GetComponent<Renderer>().enabled = false;
+                Character.gameObject.GetComponent<Renderer>().enabled = false;
                 yield return new WaitForSeconds(0.2f);
-                gameObject.GetComponent<Renderer>().enabled = true;
+                Character.gameObject.GetComponent<Renderer>().enabled = true;
                 yield return new WaitForSeconds(0.2f);
             }
         invincible = false;

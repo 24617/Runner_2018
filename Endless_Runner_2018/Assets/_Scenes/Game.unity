@@ -290,6 +290,7 @@ GameObject:
   m_Component:
   - component: {fileID: 147463468}
   - component: {fileID: 147463469}
+  - component: {fileID: 147463470}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -354,6 +355,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!95 &147463470
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 147463467}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 193b27c490fd16f4791cd3862e77dd17, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &175813498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,7 +2578,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1101802928}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09, y: -0.03, z: 3.87}
+  m_LocalPosition: {x: -0.08999794, y: -0.030002594, z: 11.544999}
   m_LocalScale: {x: 2, y: 2, z: 10}
   m_Children: []
   m_Father: {fileID: 1619261503}
@@ -2572,7 +2590,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1101802928}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2645,8 +2663,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f904b04782b88e549ab75962f61dc0b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   attackSpeed: 4
   Spinner: {fileID: 1619261502}
+  Character: {fileID: 147463467}
 --- !u!1 &1138098499
 GameObject:
   m_ObjectHideFlags: 0
@@ -3722,7 +3742,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1619261502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.57333344, y: 0.40199995, z: -0.13333337}
+  m_LocalPosition: {x: 0.57333344, y: 0.40199995, z: -0.645}
   m_LocalScale: {x: 0.06666667, y: 0.1, z: 0.06666667}
   m_Children:
   - {fileID: 1101802929}
@@ -3735,7 +3755,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1619261502}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3841,6 +3861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lanes: []
+  Character: {fileID: 147463467}
 --- !u!114 &1638912555
 MonoBehaviour:
   m_ObjectHideFlags: 0

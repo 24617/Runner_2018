@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+
+    
+    public Animation animator;
     bool isAttacking = false;
     public int attackSpeed = 4;
     bool AttackRefresher = false;
     float AttackRefreshTimer = 0;
     float RefreshTime = 1.5f;
     public GameObject Spinner;
+    public GameObject Character;
 
     Vector3 startRotation;
 
@@ -30,12 +34,14 @@ public class PlayerAttack : MonoBehaviour
                 if (Input.GetKeyDown("space"))
                 {
                     isAttacking = true;
+                    Character.GetComponent<Animator>().SetTrigger("PlayerAttack");
                 }
             }
         }
 
         if (isAttacking == true)
         {
+            
             Spinner.gameObject.transform.Rotate(Vector3.up * attackSpeed);
             AttackRefreshTimer += Time.deltaTime;
             
