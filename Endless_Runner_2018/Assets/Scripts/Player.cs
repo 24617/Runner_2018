@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -51,6 +52,11 @@ public class Player : MonoBehaviour {
 
     }
 
+    public void Die()
+    {
+        SceneManager.LoadScene("deathScreen", LoadSceneMode.Additive);
+    }
+
     private void OnTriggerEnter(Collider col)
     {
 
@@ -62,6 +68,11 @@ public class Player : MonoBehaviour {
                 invincible = true;
                 coroutine = GotHit();
                 StartCoroutine(coroutine);
+                if (HearthCounter.health == 0)
+                {
+                    Debug.Log("U DIED");
+                    Die();
+                }
 
             }
         }
