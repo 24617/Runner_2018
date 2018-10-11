@@ -18,7 +18,7 @@ public class time : MonoBehaviour {
         string minutes = ((int) T / 60).ToString();
         string seconds = (T % 60).ToString("f2");
 
-        Timer.text = minutes + ":" + seconds;
+        Timer.text = "time: " + minutes + ":" + seconds;
 		
 	}
 }

@@ -9,21 +9,23 @@ public class HearthCounter : MonoBehaviour {
     public Image[] hearts;
     public int NumberOfHearts = 5;
     public static int health = 5;
-    public Color fullHeart;
-    public Color emptyHeart;
-	
+    public Sprite fullHeart;
+    public Sprite emptyHeart;
 
-	void Update () {
+
+    void Update () {
+
+       
 
         for (int i = 0; i < hearts.Length; i++)
         {
             if (i < health)
             {
-                hearts[i].GetComponent<Image>().color = fullHeart;
+                hearts[i].sprite = fullHeart;
             }
             else
             {
-                hearts[i].GetComponent<Image>().color = emptyHeart;
+                hearts[i].sprite = emptyHeart;
             }
             if (i < NumberOfHearts)
             {
@@ -36,10 +38,7 @@ public class HearthCounter : MonoBehaviour {
             }
         }
 
-        if (health == 0)
-        {
-
-        }
+       
 
     }
 }
