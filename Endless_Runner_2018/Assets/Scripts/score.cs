@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class score : MonoBehaviour
 {
-    float myScore = 0;
+    public float myScore = 0;
+
+   
+    
 
     float tijd = 1f;
 
@@ -13,14 +16,27 @@ public class score : MonoBehaviour
 
     void Start()
     {
+        
+    Score.text = "";
 
-        Score.text = "";
+        
+    }
 
-
+    public void Save(Player player)
+    {
+      if (player.die == true)
+        {
+            Debug.Log("je hebt ons opgeslagen honey");
+            saveLoad.SaveData(this);
+           
+        }
     }
 
     void Update()
     {
+
+       
+
 
         AddScore(Time.deltaTime);
     }

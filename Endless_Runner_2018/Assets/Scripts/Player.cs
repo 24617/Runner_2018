@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
 
  
     public List<float> Lanes = new List<float>();
-
+    public bool die = false;
     private int Lane = 0;
     bool StartGame = false;
     private bool invincible = false;
@@ -54,7 +54,10 @@ public class Player : MonoBehaviour {
 
     public void Die()
     {
-        SceneManager.LoadScene("deathScreen", LoadSceneMode.Additive);
+        SceneManager.LoadScene("deathScreen");
+        Debug.Log(die);
+    
+        
     }
 
     private void OnTriggerEnter(Collider col)
@@ -71,6 +74,7 @@ public class Player : MonoBehaviour {
                 if (HearthCounter.health == 0)
                 {
                     Debug.Log("U DIED");
+                    die = true;
                     Die();
                 }
 
