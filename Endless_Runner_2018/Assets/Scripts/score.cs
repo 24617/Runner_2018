@@ -2,43 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class score : MonoBehaviour
 {
     public float myScore = 0;
 
-   
-    
 
-    float tijd = 1f;
+    Player player;
+
+    float tijd = 1;
 
     public Text Score;
 
     void Start()
     {
-        
-    Score.text = "";
 
+        player = GameObject.Find("Player").GetComponent<Player>();
+
+        Score.text = "";
+        print("Start van score");
         
     }
 
     public void Save(Player player)
     {
+        Debug.Log("hola chicos");
       if (player.die == true)
         {
             Debug.Log("je hebt ons opgeslagen honey");
             saveLoad.SaveData(this);
-           
+            SceneManager.LoadScene("deathScreen");
         }
     }
 
     void Update()
     {
+        Save(player);
+        
+        print(player.die);
 
-       
 
-
-        AddScore(Time.deltaTime);
+        AddScore(Time.deltaTime * 2);
     }
 
     public void AddScore(float add)
