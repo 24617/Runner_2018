@@ -27,6 +27,8 @@ public class Player : MonoBehaviour {
 
     void Update() {
 
+
+
         transform.position += Vector3.right * Time.deltaTime * 5;
         transform.position = new Vector3(transform.position.x, transform.position.y, Lanes[Lane]);
         
@@ -54,7 +56,7 @@ public class Player : MonoBehaviour {
 
     public void Die()
     {
-        SceneManager.LoadScene("deathScreen");
+       
         Debug.Log(die);
     
         

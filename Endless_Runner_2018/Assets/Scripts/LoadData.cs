@@ -5,14 +5,25 @@ using UnityEngine.UI;
 
 public class LoadData : MonoBehaviour {
 
-    
+
+    score ScoreT;
+    float endScore;
+
     public Text Score;
 
-    void load (score Score) {
+    public void Load (score ScoreT) {
 
         float[] loadedScore = saveLoad.LoadData();
-        Score.myScore = loadedScore[0];
-        this.Score.text = "End Score = " + Score;
+        print(loadedScore[0]);
+        endScore = loadedScore[0];
 
+        Score.text = "End Score = " + Mathf.FloorToInt(endScore).ToString();
+       
+    }
+
+    void Start()
+    {
+        Debug.Log("LADEN");
+        Load(ScoreT);
     }
 }
