@@ -6,14 +6,15 @@ public class PlayerAttack : MonoBehaviour
 {
 
     
-    public Animation animator;
+    private Animation animator;
     bool isAttacking = false;
-    public int attackSpeed = 4;
+    private int attackSpeed = 4;
     bool AttackRefresher = false;
     float AttackRefreshTimer = 0;
     float RefreshTime = 1.5f;
     public GameObject Spinner;
     public GameObject Character;
+    public AudioSource AttackSound;
 
     Vector3 startRotation;
 
@@ -35,6 +36,7 @@ public class PlayerAttack : MonoBehaviour
                 {
                     isAttacking = true;
                     Character.GetComponent<Animator>().SetTrigger("PlayerAttack");
+                    AttackSound.Play();
                 }
             }
         }
