@@ -8,8 +8,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 public static class saveLoad
 {
 
-
-
     public static void SaveData(score Score)
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -32,9 +30,7 @@ public static class saveLoad
             Debug.Log("u svaed us!");
             stream.Close();
             return Data.stats;
-
         }
-
         return null;
     }
 

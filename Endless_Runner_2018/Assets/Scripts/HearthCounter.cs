@@ -5,13 +5,11 @@ using UnityEngine.UI;
 
 public class HearthCounter : MonoBehaviour {
 
-    
     public Image[] hearts;
     public int NumberOfHearts = 5;
     public static int health = 5;
     public Sprite fullHeart;
     public Sprite emptyHeart;
-
 
     void Update () {
 

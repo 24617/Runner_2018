@@ -7,8 +7,6 @@ public class StartGame : MonoBehaviour {
 
     public void Clicked()
     {
-
         SceneManager.LoadScene("Game");
-
     }
 }

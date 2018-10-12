@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
 
-    
     private Animation animator;
     bool isAttacking = false;
     private int attackSpeed = 4;
@@ -17,8 +16,6 @@ public class PlayerAttack : MonoBehaviour
     public AudioSource AttackSound;
 
     Vector3 startRotation;
-
-
 
     private void Start()
     {
