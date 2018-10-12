@@ -22,24 +22,23 @@ public class score : MonoBehaviour
         
     }
 
-    public void Save(Player player)
+   
+
+    void Update(Player player)
     {
-      if (player.die == true)
-        {
-            Debug.Log("je hebt ons opgeslagen honey");
-            saveLoad.SaveData(this);
-           
-        }
-    }
+        if (player.die == true)
+            {
+                Debug.Log("je hebt ons opgeslagen honey");
+                saveLoad.SaveData(this);
 
-    void Update()
-    {
-
-       
-
-
+            }
         AddScore(Time.deltaTime);
     }
+
+
+
+        
+    
 
     public void AddScore(float add)
     {
