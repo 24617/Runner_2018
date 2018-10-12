@@ -2,5 +2,4 @@
 
 Gello's Adventure - Game
 
-Alex Broking
-Jovan Heckers
+Alex Broking & Jovan Heckers
